@@ -1,0 +1,319 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Nicola Rider — Landing</title>
+
+  <!-- Google fonts similar to the design -->
+  <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@300;700;900&family=Montserrat:wght@300;600&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --bg:#efece9;
+      --accent:#e93b53; /* footer / primary pink */
+      --teal:#3fc1c5;
+      --lime:#cddc39;
+      --muted:#6f6f6f;
+      --text:#222;
+      --max-width:1100px;
+    }
+
+    *{box-sizing:border-box;margin:0;padding:0}
+    html,body{height:100%}
+    body{
+      font-family: "Montserrat", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+      background:var(--bg);
+      color:var(--text);
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      padding:40px 20px 0;
+      display:flex;
+      justify-content:center;
+    }
+
+    /* Frame similar to the screenshot */
+    .wrap{
+      width:100%;
+      max-width:var(--max-width);
+      background:var(--bg);
+      border-radius:4px;
+      overflow:hidden;
+      box-shadow:0 2px 0 rgba(0,0,0,0.03);
+    }
+
+    /* Header / nav area */
+    header{
+      display:flex;
+      align-items:flex-start;
+      justify-content:space-between;
+      padding:28px 48px 10px;
+    }
+    .brand{
+      font-family: "Merriweather", serif;
+      color:#333;
+    }
+    .brand h1{
+      font-size:28px;
+      font-weight:900;
+      letter-spacing:-0.5px;
+      margin-bottom:4px;
+    }
+    .brand p{
+      font-size:13px;
+      color:var(--muted);
+      margin-top:0;
+    }
+
+    nav{
+      align-self:center;
+    }
+    nav ul{
+      list-style:none;
+      display:flex;
+      gap:18px;
+      align-items:center;
+      margin-top:6px;
+    }
+    nav a{
+      text-decoration:none;
+      color:var(--muted);
+      font-size:13px;
+      font-weight:600;
+      letter-spacing:0.6px;
+    }
+    nav a.home{ color:#3dbcc9; } /* tiny blue highlight for HOME */
+
+    /* Main content area */
+    .main{
+      display:flex;
+      gap:60px;
+      align-items:flex-start;
+      padding:18px 48px 40px;
+      min-height:360px;
+    }
+
+    .photo{
+      width:260px;
+      flex:0 0 260px;
+      display:flex;
+      justify-content:center;
+      align-items:flex-start;
+      margin-top:20px;
+    }
+    .photo img{
+      width:260px;height:260px;
+      object-fit:cover;
+      border-radius:50%;
+      border:6px solid transparent;
+      box-shadow:0 6px 0 rgba(0,0,0,0.04);
+      background: #eee;
+    }
+
+    .hero{
+      flex:1;
+      padding-top:18px;
+    }
+
+    .hello{
+      font-family: "Merriweather", serif;
+      font-size:80px;
+      font-weight:900;
+      line-height:0.9;
+      color:#333;
+      margin-bottom:10px;
+    }
+    .sub{
+      font-family: "Merriweather", serif;
+      font-size:28px;
+      font-weight:700;
+      color:#333;
+      margin-bottom:22px;
+    }
+
+    /* circular buttons row */
+    .circles{
+      display:flex;
+      gap:20px;
+      margin-bottom:18px;
+      align-items:center;
+    }
+    .circle{
+      width:92px;height:92px;
+      border-radius:50%;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      flex-direction:column;
+      box-shadow:0 6px 0 rgba(0,0,0,0.03);
+      color:white;
+      font-weight:700;
+      font-size:12px;
+      text-align:center;
+      cursor:pointer;
+      text-decoration:none;
+    }
+    .circle span{ font-size:11px; opacity:0.95 }
+
+    .c-pink{ background:var(--accent); }
+    .c-teal{ background:var(--teal); color:#fff; }
+    .c-lime{ background:#d8e04b; color:#444; }
+
+    /* paragraph text area */
+    .desc{
+      max-width:560px;
+      color:var(--muted);
+      font-size:14px;
+      margin-top:8px;
+      line-height:1.6;
+    }
+
+    /* footer bar */
+    footer{
+      margin-top:28px;
+      background:var(--accent);
+      color:#fff;
+      padding:22px 48px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:20px;
+    }
+    .footer-left{
+      display:flex;
+      gap:22px;
+      align-items:center;
+    }
+    .contact-item{
+      display:flex;
+      gap:10px;
+      align-items:center;
+      font-size:13px;
+      opacity:0.95;
+    }
+    .icon{
+      width:36px;height:36px;border-radius:50%;
+      background:rgba(255,255,255,0.12);
+      display:inline-flex;align-items:center;justify-content:center;
+      font-size:16px;
+    }
+
+    .follow{
+      display:flex;gap:12px;align-items:center;
+    }
+    .follow a{
+      width:36px;height:36px;border-radius:50%;
+      display:inline-flex;align-items:center;justify-content:center;background:rgba(255,255,255,0.12);
+      color:white;text-decoration:none;font-size:14px;
+    }
+
+    .copyright{
+      font-size:13px;
+      opacity:0.95;
+    }
+
+    /* Responsive */
+    @media (max-width:920px){
+      .main{ flex-direction:column; align-items:center; text-align:center; gap:18px; padding:12px 28px 30px;}
+      .hero{ padding-top:6px; }
+      .photo{ margin-top:0 }
+      .hello{ font-size:58px; }
+      header{ padding:18px 28px 6px; }
+      footer{ flex-direction:column; align-items:center; text-align:center; gap:12px; padding:20px 28px; }
+    }
+
+  </style>
+</head>
+<body>
+  <div class="wrap" role="main" aria-label="Nicola Rider landing">
+    <header>
+      <div class="brand" aria-hidden="false">
+        <h1>Nicola Rider</h1>
+        <p>Fashion Editor / Stylist</p>
+      </div>
+
+      <nav aria-label="Main navigation">
+        <ul>
+          <li><a href="#" class="home">HOME</a></li>
+          <li><a href="#">RESUME</a></li>
+          <li><a href="#">PROJECTS</a></li>
+          <li><a href="#">CONTACT</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <section class="main">
+      <div class="photo">
+        <!-- Use the image path you have. If the image is in same folder use "ae476fa12110323c400b3970ba0c7dda.jpg" -->
+        <img src="/mnt/data/ae476fa12110323c400b3970ba0c7dda.jpg" alt="Nicola Rider portrait">
+      </div>
+
+      <div class="hero">
+        <div class="hello">Hello,</div>
+        <div class="sub">a bit about me:</div>
+
+        <div class="circles" role="list" aria-label="Quick links">
+          <a class="circle c-pink" href="#" role="listitem">
+            <strong>MY RESUME</strong>
+            <span>PDF</span>
+          </a>
+          <a class="circle c-teal" href="#" role="listitem">
+            <strong>MY WORK</strong>
+            <span>Portfolio</span>
+          </a>
+          <a class="circle c-lime" href="#" role="listitem">
+            <strong>MY SKILLS</strong>
+            <span>Details</span>
+          </a>
+        </div>
+
+        <p class="desc">
+          I'm a paragraph. Click here to add your own text and edit me. It's easy.
+          Just click “Edit Text” or double click me and you can start adding your own
+          content and make changes to the font. Feel free to drag and drop me
+          anywhere you like on your page. I'm a great place for you to write
+          more. Tell a story and let your users get to know you.
+        </p>
+      </div>
+    </section>
+
+    <footer>
+      <div class="footer-left" aria-hidden="false">
+        <div class="contact-item">
+          <span class="icon">📞</span>
+          <div>
+            <div style="font-weight:700">Call</div>
+            <div style="font-size:13px;opacity:0.95">T: 123-456-7890<br>T: 123-456-7890</div>
+          </div>
+        </div>
+
+        <div class="contact-item">
+          <span class="icon">✉️</span>
+          <div>
+            <div style="font-weight:700">Contact</div>
+            <div style="font-size:13px;opacity:0.95">info@mysite.com</div>
+          </div>
+        </div>
+
+        <div class="contact-item">
+          <span class="icon">＋</span>
+          <div>
+            <div style="font-weight:700">Follow me</div>
+            <div style="font-size:13px;opacity:0.95">Social</div>
+          </div>
+        </div>
+      </div>
+
+      <div style="display:flex;flex-direction:column;align-items:flex-end;gap:8px;">
+        <div class="follow" aria-hidden="false">
+          <a href="#" title="Facebook">f</a>
+          <a href="#" title="Twitter">t</a>
+          <a href="#" title="Instagram">◯</a>
+        </div>
+        <div class="copyright">© 2023 by Nicola Rider — Proudly created with Wix.com</div>
+      </div>
+    </footer>
+
+  </div>
+</body>
+</html>
